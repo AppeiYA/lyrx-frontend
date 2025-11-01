@@ -1,6 +1,20 @@
 import { LikeResponse, TimelinePost, TimelineResponse } from "@/utils/types";
 import apiRequest from "./apiClient";
 
+export async function getUserProfile(): Promise<{
+  message: string;
+  data: {
+    id: string;
+    email: string;
+    username: string;
+    createdAt: string;
+  };
+}> {
+  return apiRequest("/api/user/me", {
+    method: "GET",
+  });
+}
+
 export async function getTimelinePosts(): Promise<TimelineResponse> {
   return apiRequest("/api/posts", {
     method: "GET",
@@ -28,10 +42,10 @@ export async function unlikeItem(
 export async function createPost(
   post_content: string,
   link?: string,
-  post_image?: string,
+  post_image?: string
 ): Promise<TimelinePost> {
   return apiRequest("/api/posts", {
     method: "POST",
-    body: JSON.stringify({post_content: post_content, link, post_image})
-  })
+    body: JSON.stringify({ post_content: post_content, link, post_image }),
+  });
 }

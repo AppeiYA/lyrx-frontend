@@ -133,6 +133,16 @@ export default function SignInPage() {
               </div>
             </div>
 
+            {/* oauth logins */}
+            <div>
+              <a
+                href={`http://localhost:4000/api/auth/login/federated/google`}
+                className="flex justify-center flex-row py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-green-100"
+              >
+                Google
+              </a>
+            </div>
+
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
